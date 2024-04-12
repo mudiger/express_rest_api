@@ -6,7 +6,13 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  res.status(200).json({ message: "Welcome to the POST API" });
+  const product = {
+    name: req.body.name,
+    price: req.body.price,
+  };
+  res
+    .status(201)
+    .json({ message: "Welcome to the POST API", createdProduct: product });
 });
 
 module.exports = router;
